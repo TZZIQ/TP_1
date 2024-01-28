@@ -128,12 +128,45 @@ void afficher_bits_test()
     printf("afficher_bits_test\n\n\n");
 
     printf("la valeur d'entree est\t:0x%08x\n", 0x12345678);
-    printf("le bit de depart est\t:0x%08x\n", 0);
-    printf("le bit de fin est\t:0x%08x\n", 31);
+    printf("le bit de depart est\t:%i\n", 0);
+    printf("le bit de fin est\t:%i\n", 31);
     printf("la valeur predite  est\t:(0x12345678) : 0001 0010 0011 0100 0101 0110 0111 1000\n");
     printf("la valeur obtenue  est\t:");
-    afficher_bits(0xffffffff,0,31);
+    afficher_bits(0x12345678,0,31);
     printf("\n\n");
+
+    printf("la valeur d'entree est\t:0x%08x\n", 0x9ABCDEF0);
+    printf("le bit de depart est\t:%i\n", 0);
+    printf("le bit de fin est\t:%i\n", 31);
+    printf("la valeur predite  est\t:(0x9ABCDEF0) : 1001 1010 1011 1100 1101 1110 1111 0000\n");
+    printf("la valeur obtenue  est\t:");
+    afficher_bits(0x9ABCDEF0,0,31);
+    printf("\n\n");
+
+    printf("la valeur d'entree est\t:0x%08x\n", 0xA3CF8643);
+    printf("le bit de depart est\t:%i\n", 4);
+    printf("le bit de fin est\t:%i\n", 15);
+    printf("la valeur predite  est\t:(0xA3CF8643) : 1000 0110 0100\n");
+    printf("la valeur obtenue  est\t:");
+    afficher_bits(0xA3CF8643,4,15);
+    printf("\n\n");
+
+    printf("la valeur d'entree est\t:0x%08x\n", 0xA3CF8643);
+    printf("le bit de depart est\t:%i\n", 31);
+    printf("le bit de fin est\t:%i\n", 31);
+    printf("la valeur predite  est\t:(0xA3CF8643) : 1\n");
+    printf("la valeur obtenue  est\t:");
+    afficher_bits(0xA3CF8643,31,31);
+    printf("\n\n");
+
+    printf("la valeur d'entree est\t:0x%08x\n", 0xA3CF8643);
+    printf("le bit de depart est\t:%i\n", 0);
+    printf("le bit de fin est\t:%i\n", 0);
+    printf("la valeur predite  est\t:(0xA3CF8643) : 1\n");
+    printf("la valeur obtenue  est\t:");
+    afficher_bits(0xA3CF8643,0,0);
+    printf("\n\n");
+
 }
 
 int main(void)

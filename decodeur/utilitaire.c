@@ -60,24 +60,27 @@ unsigned int calculer_nb_bits_actifs(unsigned int valeur)
       return bits_actif;
 }
 
-
+///affiche la valeurs des bits d'un entier non signe avec une plage variable
 void afficher_bits(unsigned int valeur, unsigned int LSB, unsigned int MSB)
 {
     unsigned int masque = 0x80000000, resultat = 0;
     printf("(0x%08x) : ", valeur);
-    for(int i = 0; i < 32; i++)
+    ///boucle pour passer du MSB jusquau LSB
+    for(int i = 31; i >= 0; i--)
     {
         resultat = (valeur & masque);
-        resultat  >>= 31;
+        resultat  >>= i;
         if (i <= MSB && i >= LSB)
         {
             printf("%x", resultat);
-            if((i+1) %4 == 0)
+            ///sert a mettre des espaces entres 4 bits
+            if((i) %4 == 0)
             {
                 printf(" ");
             }
 
         }
+        ///sert a "selectionner" les autres bits du la valeur a analyser
         masque >>= 1;
     }
 }

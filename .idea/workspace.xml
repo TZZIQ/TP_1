@@ -20,7 +20,15 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d0ec2436-0e5a-440b-833a-e9e896dc90db" name="Changes" comment="" />
+    <list default="true" id="d0ec2436-0e5a-440b-833a-e9e896dc90db" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/H2024TP1.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/H2024TP1.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/decodeur/utilitaire.c" beforeDir="false" afterPath="$PROJECT_DIR$/decodeur/utilitaire.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/test.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/udp/port_udp.c" beforeDir="false" afterPath="$PROJECT_DIR$/udp/port_udp.c" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,11 +85,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -97,7 +100,8 @@
       <workItem from="1706228458848" duration="14365000" />
       <workItem from="1706303628725" duration="383000" />
       <workItem from="1706326822143" duration="6824000" />
-      <workItem from="1706367507085" duration="1000" />
+      <workItem from="1706367507085" duration="1410000" />
+      <workItem from="1706410569521" duration="4537000" />
     </task>
     <servers />
   </component>
