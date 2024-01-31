@@ -14,6 +14,7 @@ set(PROJECT_SOURCES
         test.c
         decodeur/a429.c
         decodeur/utilitaire.c
+        udp/port_udp.c
 )
 
 if (WIN32)

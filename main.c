@@ -11,12 +11,23 @@
 #include "configuration.h"
 #include "decodeur/a429.h"
 #include "decodeur/utilitaire.h"
+#include "udp/port_udp.h"
+
+void afficher_mot_a4299(unsigned int mot);
+void afficher_mot_a4299(unsigned int mot)
+{
+
+}
 
 #if MODE_APPLICATION
 int main(void)
 {
     afficher_entete_decodeur();
-    printf("%i",decimale_a_octale(96));
+    initialiser_port_udp(5501);
+    recevoir_port_udp(5501,)
+    ///pour que le cycle ne finit pas????
+    main();
     return EXIT_SUCCESS;
+
 }
 #endif

@@ -22,7 +22,7 @@ void afficher_heure(int nbr_secondes_recus)
     int heure = nbr_secondes_recus/3600;
     int min  = ((nbr_secondes_recus)-(heure * 3600)) / 60;
     int seconde = ((nbr_secondes_recus)-(heure * 3600)-(min*60));
-    printf("%ih%im%is\n",heure,min,seconde);
+    printf("%02ih%02im%02is\n",heure,min,seconde);
 }
 
 
