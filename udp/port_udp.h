@@ -98,7 +98,7 @@ void detruire_port_udp(int id_port_udp);
         unsigned int valeur_recue;
         
         id_port_udp = initialiser_port_udp(55001);
-        recevoir_port_udp(id_port_udp, &valeur_recue, sizeof(unsigned int));
+        nb_octet = recevoir_port_udp(id_port_udp, &valeur_recue, sizeof(unsigned int));
 */
 int recevoir_port_udp(int id_port_udp, void* donnees, int taille_donnees);
 

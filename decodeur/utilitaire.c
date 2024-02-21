@@ -3,7 +3,7 @@
     Date    : 24 janvier 2024
     Session : H2024
 
-    Ce module contient ..-!!-..!.!-!-!..!..- du decodeur.
+    Ce module contient une variete de fonctions utile au decodage et autres.
 ****************************************************************************************/
 
 
@@ -22,7 +22,7 @@ void afficher_heure(int nbr_secondes_recus)
     int heure = nbr_secondes_recus/3600;
     int min  = ((nbr_secondes_recus)-(heure * 3600)) / 60;
     int seconde = ((nbr_secondes_recus)-(heure * 3600)-(min*60));
-    printf("%02ih%02im%02is\n",heure,min,seconde);
+    printf("%02ih%02im%02is",heure,min,seconde);
 }
 
 
@@ -43,7 +43,7 @@ unsigned int decimale_a_octale(unsigned int nombre_base10)
 }
 
 
-///calcule le nombres de bits set a 1 dans un int de 32 bits
+///calcule le nombres de bits a 1 dans un entier de 32 bits
 unsigned int calculer_nb_bits_actifs(unsigned int valeur)
 {
       int bits_actif = 0;
@@ -55,6 +55,7 @@ unsigned int calculer_nb_bits_actifs(unsigned int valeur)
           {
             bits_actif++;
           }
+          ///sert a "selectionner" les autres bits de la valeur a analyser
           valeur >>= 1;
       }
       return bits_actif;
@@ -65,22 +66,23 @@ void afficher_bits(unsigned int valeur, unsigned int LSB, unsigned int MSB)
 {
     unsigned int masque = 0x80000000, resultat = 0;
     printf("(0x%08x) : ", valeur);
-    ///boucle pour passer du MSB jusquau LSB
+    ///boucle pour passer du MSB jusqu'au LSB
     for(int i = 31; i >= 0; i--)
     {
         resultat = (valeur & masque);
         resultat  >>= i;
+        ///sert a afficher la plage donne en parametre seulment
         if (i <= MSB && i >= LSB)
         {
             printf("%x", resultat);
-            ///sert a mettre des espaces entres 4 bits
+            ///sert a mettre des espaces à chaque 4 bits
             if((i) %4 == 0)
             {
                 printf(" ");
             }
 
         }
-        ///sert a "selectionner" les autres bits du la valeur a analyser
+        ///sert a "selectionner" les autres bits de la valeur a analyser
         masque >>= 1;
     }
 }

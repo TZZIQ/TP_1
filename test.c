@@ -3,7 +3,7 @@
     Date    : 24 janvier 2024
     Session : H2024
 
-    Ce module contient ..-!!-..!.!-!-!..!..- du decodeur.
+    Ce module contient les tests du decodeur.
 ****************************************************************************************/
 
 
@@ -12,18 +12,29 @@
 #include <stdio.h>
 #include "configuration.h"
 #include "decodeur/utilitaire.h"
+#include "decodeur/a429.h"
+#include "decodeur/icd.h"
 
+void afficher_entete_test()
+{
 
-/// defintion des constates
-
-
-/// definition des fonctions
-void afficher_entete_test();
+}
 
 
 /// le module est exectue uniquement en mode test
 #if MODE_TEST
 
+
+afficher_entete_decodeur()
+{
+    printf("/************************************************\n");
+    printf("* DECODEUR ARINC-429 :: Mode Test\n*\n");
+    printf("* Auteur \t: Ilyasse Qbibi et Daniel Zoughaib\n");
+    printf("* Session \t: Hiver 2024\n");
+    printf("*\n/************************************************\n");
+    printf("Mot ARINC-429 | Est corompu | Donnee\n");
+    printf("--------------|-------------|-----------------------\n");
+}
 
 void afficher_heure_test()
 {
@@ -169,14 +180,125 @@ void afficher_bits_test()
 
 }
 
+void decoder_mot_test()
+{
+    int etat_corupt = 0, num_mot = 0,donne_bcd1 = 0, donne_bcd2 = 0,donne_bcd3 = 0,donne_bcd4 = 0;
+    double donne_bnr = 0;
+
+    printf("decoder mot test\n\n\n");
+
+    decoder_mot_a429(0x85D3029A, &etat_corupt,&num_mot,&donne_bnr,&donne_bcd1,&donne_bcd2,&donne_bcd3,&donne_bcd4);
+    printf("La valeur d'entree est\t:0x%08x\n", 0x85D3029A);
+    printf("Est corrompu : la valeur predite  est\t:%i\n", 0);
+    printf("Est corrompu : la valeur obtenue  est\t:%i\n", etat_corupt);
+    printf("Numero mot : la valeur predite  est\t:%i\n", 232);
+    printf("Numero mot : la valeur obtenue  est\t:%i\n", num_mot);
+    printf("Donne bnr : la valeur predite  est\t:DC\n");
+    printf("Donne bnr : la valeur obtenue  est\t:%.06lf\n", donne_bnr);
+    printf("Donne bcd1 : la valeur predite  est\t:%i\n", 2);
+    printf("Donne bcd1 : la valeur obtenue  est\t:%i\n", donne_bcd1);
+    printf("Donne bcd2 : la valeur predite  est\t:%i\n", 24);
+    printf("Donne bcd2 : la valeur obtenue  est\t:%i\n", donne_bcd2);
+    printf("Donne bcd3 : la valeur predite  est\t:%i\n", 20);
+    printf("Donne bcd3 : la valeur obtenue  est\t:%i\n", donne_bcd3);
+    printf("Donne bcd4 : la valeur predite  est\t:%i\n", 11);
+    printf("Donne bcd4 : la valeur obtenue  est\t:%i\n\n\n", donne_bcd4);
+
+    etat_corupt = 0, num_mot = 0,donne_bcd1 = 0, donne_bcd2 = 0,donne_bcd3 = 0,donne_bcd4 = 0;
+    donne_bnr = 0;
+
+    decoder_mot_a429(0x003C90B0, &etat_corupt,&num_mot,&donne_bnr,&donne_bcd1,&donne_bcd2,&donne_bcd3,&donne_bcd4);
+    printf("La valeur d'entree est\t:0x%08x\n", 0x003C90B0);
+    printf("Est corrompu : la valeur predite  est\t:%i\n", 0);
+    printf("Est corrompu : la valeur obtenue  est\t:%i\n", etat_corupt);
+    printf("Numero mot : la valeur predite  est\t:%i\n", 260);
+    printf("Numero mot : la valeur obtenue  est\t:%i\n", num_mot);
+    printf("Donne bnr : la valeur predite  est\t:DC\n");
+    printf("Donne bnr : la valeur obtenue  est\t:%.06lf\n", donne_bnr);
+    printf("Donne bcd1 : la valeur predite  est\t:%i\n", 16);
+    printf("Donne bcd1 : la valeur obtenue  est\t:%i\n", donne_bcd1);
+    printf("Donne bcd2 : la valeur predite  est\t:%i\n", 4);
+    printf("Donne bcd2 : la valeur obtenue  est\t:%i\n", donne_bcd2);
+    printf("Donne bcd3 : la valeur predite  est\t:%i\n", 15);
+    printf("Donne bcd3 : la valeur obtenue  est\t:%i\n", donne_bcd3);
+    printf("Donne bcd4 : la valeur predite  est\t:%i\n", 0);
+    printf("Donne bcd4 : la valeur obtenue  est\t:%i\n\n\n", donne_bcd4);
+
+    etat_corupt = 0, num_mot = 0,donne_bcd1 = 0, donne_bcd2 = 0,donne_bcd3 = 0,donne_bcd4 = 0;
+    donne_bnr = 0;
+
+    decoder_mot_a429(0x812EAF68, &etat_corupt,&num_mot,&donne_bnr,&donne_bcd1,&donne_bcd2,&donne_bcd3,&donne_bcd4);
+    printf("La valeur d'entree est\t:0x%08x\n", 0x812EAF68);
+    printf("Est corrompu : la valeur predite  est\t:%i\n", 0);
+    printf("Est corrompu : la valeur obtenue  est\t:%i\n", etat_corupt);
+    printf("Numero mot : la valeur predite  est\t:%i\n", 150);
+    printf("Numero mot : la valeur obtenue  est\t:%i\n", num_mot);
+    printf("Donne bnr : la valeur predite  est\t:%.06lf\n",77487.000000);
+    printf("Donne bnr : la valeur obtenue  est\t:%.06lf\n", donne_bnr);
+    printf("Donne bcd1 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd1 : la valeur obtenue  est\t:%i\n", donne_bcd1);
+    printf("Donne bcd2 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd2 : la valeur obtenue  est\t:%i\n", donne_bcd2);
+    printf("Donne bcd2 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd3 : la valeur obtenue  est\t:%i\n", donne_bcd3);
+    printf("Donne bcd2 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd4 : la valeur obtenue  est\t:%i\n\n\n", donne_bcd4);
+
+    etat_corupt = 0, num_mot = 0,donne_bcd1 = 0, donne_bcd2 = 0,donne_bcd3 = 0,donne_bcd4 = 0;
+    donne_bnr = 0;
+
+    decoder_mot_a429(0x83D2E3C8, &etat_corupt,&num_mot,&donne_bnr,&donne_bcd1,&donne_bcd2,&donne_bcd3,&donne_bcd4);
+    printf("La valeur d'entree est\t:0x%08x\n", 0x83D2E3C8);
+    printf("Est corrompu : la valeur predite  est\t:%i\n", 0);
+    printf("Est corrompu : la valeur obtenue  est\t:%i\n", etat_corupt);
+    printf("Numero mot : la valeur predite  est\t:%i\n", 310);
+    printf("Numero mot : la valeur obtenue  est\t:%i\n", num_mot);
+    printf("Donne bnr : la valeur predite  est\t:%.06lf\n",43.102340);
+    printf("Donne bnr : la valeur obtenue  est\t:%.06lf\n", donne_bnr*RESOLUTION_MOT_LONGITUDE);
+    printf("Donne bcd1 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd1 : la valeur obtenue  est\t:%i\n", donne_bcd1);
+    printf("Donne bcd2 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd2 : la valeur obtenue  est\t:%i\n", donne_bcd2);
+    printf("Donne bcd2 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd3 : la valeur obtenue  est\t:%i\n", donne_bcd3);
+    printf("Donne bcd2 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd4 : la valeur obtenue  est\t:%i\n\n\n", donne_bcd4);
+
+    etat_corupt = 0, num_mot = 0,donne_bcd1 = 0, donne_bcd2 = 0,donne_bcd3 = 0,donne_bcd4 = 0;
+    donne_bnr = 0;
+
+    decoder_mot_a429(0x00261AAA, &etat_corupt,&num_mot,&donne_bnr,&donne_bcd1,&donne_bcd2,&donne_bcd3,&donne_bcd4);
+    printf("La valeur d'entree est\t:0x%08x\n", 0x00261AAA);
+    printf("Est corrompu : la valeur predite  est\t:%i\n", 1);
+    printf("Est corrompu : la valeur obtenue  est\t:%i\n", etat_corupt);
+    printf("Numero mot : la valeur predite  est\t:%i\n", 252);
+    printf("Numero mot : la valeur obtenue  est\t:%i\n", num_mot);
+    printf("Donne bnr : la valeur predite  est\t:%.06lf\n",9754.000000);
+    printf("Donne bnr : la valeur obtenue  est\t:%.06lf\n", donne_bnr);
+    printf("Donne bcd1 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd1 : la valeur obtenue  est\t:%i\n", donne_bcd1);
+    printf("Donne bcd2 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd2 : la valeur obtenue  est\t:%i\n", donne_bcd2);
+    printf("Donne bcd2 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd3 : la valeur obtenue  est\t:%i\n", donne_bcd3);
+    printf("Donne bcd2 : la valeur predite  est\t:DC\n");
+    printf("Donne bcd4 : la valeur obtenue  est\t:%i\n\n\n", donne_bcd4);
+
+}
+
+void afficher_mot_a429_test()
+{
+    afficher_mot_a429(0x85D3029A);
+    afficher_mot_a429(0x003C90B0);
+    afficher_mot_a429(0x812EAF68);
+    afficher_mot_a429(0x83D2E3C8);
+    afficher_mot_a429(0x00261AAA);
+}
+
 int main(void)
 {
-    printf("/************************************************\n");
-    printf("* DECODEUR ARINC-429 :: Mode Test\n*\n");
-    printf("* Auteur \t: Ilyasse Qbibi et Daniel Zoughaib\n");
-    printf("* Session \t: Hiver 2024\n");
-    printf("*\n/************************************************\n");
-    afficher_bits_test();
+    afficher_entete_decodeur();
+    afficher_mot_a429_test();
     return EXIT_SUCCESS;
 }
 #endif
